@@ -1,0 +1,31 @@
+# dependencies
+node_modules
+
+# build output
+dist
+dist-ssr
+*.tsbuildinfo
+
+# original, unprocessed source media (copies live in public/assets/)
+/photo_2026-08-27_18-51-58.jpg
+/Habib-Marge-Ghoo-256.mp3
+
+# full Doran font family (proprietary, from fontiran.com). Only the one variable
+# web font actually used by the site is committed, at
+# public/assets/fonts/DoranFaNum-VF.woff2 (+ .woff). Keep this folder locally as
+# the source; it is not needed for the build or deploy.
+/WebFont/
+
+# local env files
+.env
+.env.local
+.env.*.local
+
+# editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*

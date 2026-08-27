@@ -1,0 +1,17 @@
+Doran Fonts
+Version 2.5 (August 2025)
+Authors: Fereshte Iranshahi, Reza Bakhtiarifard & Ehsan (Daniel) Roudi
+Vendor:  http://fontiran.com
+Copyright: Commercial / Proprietary Software
+
+فونت دوران یک نرم‌افزار مالکیتی محسوب می‌شود. جهت آگاهی از قوانین استفاده از این
+فونت‌ها لطفاً به وب‌سایت فونت‌ایران دات کام مراجعه نمایید.
+
+Doran fonts are proprietary software. For the terms governing their use, see
+www.fontiran.com. This project ships the "Doran FaNum" variable web font
+(DoranFaNum-VF.woff2 / .woff) as provided by the site owner, who is responsible
+for holding a valid licence for it.
+
+Only this one variable font file is bundled; the full family (static weights,
+"Non En" and "Classic Dots" cuts) lives in the project's /WebFont directory and
+is not deployed.
