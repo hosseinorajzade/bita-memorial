@@ -13,10 +13,15 @@ declare const process: { env: Record<string, string | undefined> };
 // site is not at the domain root.
 //
 // In CI the workflow passes VITE_BASE from the GitHub Pages configuration
-// (`actions/configure-pages` -> `base_path`), which keeps this correct even if
-// the repository is renamed. Locally / as a fallback it defaults to the current
-// repository path.
-const base = process.env.VITE_BASE || '/bita-memorial/';
+// (`actions/configure-pages` -> `base_path`, e.g. "/bita-memorial" with NO
+// trailing slash), which keeps this correct even if the repository is renamed.
+// Locally / as a fallback it defaults to the current repository path.
+//
+// A trailing slash is enforced: Vite adds one when generating asset URLs, but
+// the `%BASE_URL%` token used in index.html is substituted verbatim, so without
+// it the preload links would resolve to "/bita-memorialassets/...".
+const rawBase = process.env.VITE_BASE || '/bita-memorial/';
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 
 export default defineConfig({
   base,
