@@ -1,12 +1,25 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// A relative base ('./') makes the built site work identically whether it is
-// served from a user/organization GitHub Pages site (https://user.github.io/),
-// a project site (https://user.github.io/repo/), a custom domain, or opened
-// locally. No environment variables or repo-name juggling required.
+// Minimal ambient type so the config can read a build-time env var without
+// pulling in @types/node. Node provides the real `process` at runtime.
+declare const process: { env: Record<string, string | undefined> };
+
+// The site is published to GitHub Pages as a *project* site, served from a
+// sub-path: https://hosseinorajzade.github.io/bita-memorial/
+//
+// Vite therefore needs `base` set to that sub-path so every generated URL
+// (scripts, styles, fonts, images, the audio file) resolves correctly when the
+// site is not at the domain root.
+//
+// In CI the workflow passes VITE_BASE from the GitHub Pages configuration
+// (`actions/configure-pages` -> `base_path`), which keeps this correct even if
+// the repository is renamed. Locally / as a fallback it defaults to the current
+// repository path.
+const base = process.env.VITE_BASE || '/bita-memorial/';
+
 export default defineConfig({
-  base: './',
+  base,
   plugins: [react()],
   build: {
     target: 'es2019',

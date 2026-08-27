@@ -20,17 +20,19 @@
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f5efe4'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23a9885f'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
 
-    <!-- Give the two things the first screen needs a head start. -->
+    <!-- Give the two things the first screen needs a head start.
+         %BASE_URL% is replaced by Vite with the configured base path so these
+         resolve correctly under the /bita-memorial/ sub-path. -->
     <link
       rel="preload"
-      href="./assets/fonts/DoranFaNum-VF.woff2"
+      href="%BASE_URL%assets/fonts/DoranFaNum-VF.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <!-- The portrait is the largest element on screen. If you rename the file
          in src/config/memorial.ts, update this path too (or remove this line). -->
-    <link rel="preload" href="./assets/memorial-photo.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="%BASE_URL%assets/memorial-photo.jpg" as="image" fetchpriority="high" />
 
     <style>
       /* Critical paint styles: fill the viewport with the memorial background
