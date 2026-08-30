@@ -1,7 +1,6 @@
 import type { MemorialConfig } from '../config/memorial';
 import { HeroBackdrop } from './HeroBackdrop';
 import { Particles } from './Particles';
-import { Portrait } from './Portrait';
 
 interface HeroProps {
   config: MemorialConfig;
@@ -14,13 +13,6 @@ export function Hero({ config }: HeroProps) {
       <Particles enabled={config.showParticles} />
 
       <div className="hero__inner">
-        <figure className="hero__portrait">
-          <div className="hero__portrait-frame">
-            <Portrait src={config.photo} alt={config.photoAlt} priority />
-            <span className="hero__portrait-vignette" aria-hidden="true" />
-          </div>
-        </figure>
-
         <h1 className="hero__name">{config.name}</h1>
 
         <p className="hero__dates" dir="rtl">
